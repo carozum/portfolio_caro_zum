@@ -1,20 +1,22 @@
-from flask import Flask
+from flask import Flask, render_template
 
-# __name__ is __main__ or the name of the file ex __app__ (namespace)
+
 app = Flask(__name__)
-
-# first route (first request/response): a route is a command to run a specific function which then returns the response to the user.
-# Using a decorator : decorators are function that wrap around other functions and let you do things with them.
 
 
 @app.route('/')  # request
 def index():
-    return "hello from Pet Adoption"  # response
+    return render_template('index.html')  # response
+
+
+@app.route('/pets')  # request
+def pets():
+    return render_template('p1-pets.html')  # response
 
 
 @app.route('/set-environment')
 def environment():
-    return "<h1>Installation</h1>"
+    return render_template('1-set-environment.html')
 
 
 if __name__ == '__main__':
