@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Article 1</title>
+</head>
+
+<body>
+    <header>
+        <h1>Step 2 - Flask quickstart</h1>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Request Response Cycle</h2>
+            <p><img src="img/request_response.jpg" alt="Request response cycle" width="80%"></p>
+
+        </section>
+
+        <section>
+            <h2>Flask Quickstart</h2>
+
+            <pre><code class="python">
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')  # request
+def index():
+    return "hello from Pet Adoption"  # response
+
+@app.route('/set-environment')
+def environment():
+    return "Set your environment"
+
+if __name__ == '__main__':
+    app.run(debug=True, port=8000, host='127.0.0.1')
+
+            </code></pre>
+            <p><strong>Namespaces</strong>__name__ is __main__ or the name of the file ex __app__</p>
+            <p><strong>First request/response, first route</strong>: a route is a command to run a specific function
+                which then returns
+                the response to the user.</p>
+            <p><strong>Decorator</strong> : decorators are function that wrap around other functions and let you do
+                things with
+                them.
+            </p>
+        </section>
+
+        <!-- Bookmarks -->
+        <section>
+            <h2>Bookmarks</h2>
+            <ul>
+                <li><a href="https://flask.palletsprojects.com/en/1.1.x/quickstart/#quickstart">Flask Quickstart</a>
+                </li>
+                <li><a
+                        href="https://levelup.gitconnected.com/demystifying-python-decorators-726f04963a52">Decorators</a>
+                </li>
+                <li><a
+                        href="https://betterprogramming.pub/6-things-to-know-to-demystify-namespaces-and-scopes-in-python-f5353c7ff56f">Namespace
+                        and scope</a></li>
+            </ul>
+        </section>
+
+    </main>
+
+</body>
+
+</html>
