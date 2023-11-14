@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+    color:rgb(1, 101, 101) ;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+h1, h2, h3, h4{
+    color: teal;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+img{
+    display: block;
+    margin: auto;
+    max-width: 500px;
+}
