@@ -11,12 +11,12 @@ def index():
 
 @app.route('/pets')  # request
 def pets():
-    return render_template('p1-pets.html')  # response
+    return render_template('p1-index.html')  # response
 
 
 @app.route('/set-environment')
 def environment():
-    return render_template('1-set-environment.html')
+    return render_template('b1-set-environment.html')
 
 
 if __name__ == '__main__':
