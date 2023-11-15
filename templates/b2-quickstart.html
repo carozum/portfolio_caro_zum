@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
     <title>Flask Quickstart</title>
 </head>
 
@@ -25,7 +24,7 @@
             <p>The request - response cycle is where a user requests information from your site, your site determines
                 how to handle the request and what information to send back, and then a response is sent to the user.
             </p>
-            <p><img src="img/request_response.jpg" alt="Request response cycle" width="80%"></p>
+            <!-- <p><img src="img/request_response.jpg" alt="Request response cycle" width="80%"></p> -->
 
         </section>
 
@@ -33,20 +32,20 @@
             <h2>Flask Quickstart</h2>
 
             <pre><code class="python">
-from flask import Flask
+    from flask import Flask
 
-app = Flask(__name__)
+    app = Flask(__name__)
 
-@app.route('/')  # request
-def index():
-    return "hello from Pet Adoption"  # response
+    @app.route('/')  # request
+    def index():
+        return "hello from Pet Adoption"  # response
 
-@app.route('/set-environment')
-def environment():
-    return "Set your environment"
+    @app.route('/set-environment')
+    def environment():
+        return "Set your environment"
 
-if __name__ == '__main__':
-    app.run(debug=True, port=8000, host='127.0.0.1')
+    if __name__ == '__main__':
+        app.run(debug=True, port=8000, host='127.0.0.1')
 
             </code></pre>
             <p><strong>Namespaces</strong>__name__ is __main__ or the name of the file ex __app__</p>
@@ -61,7 +60,7 @@ if __name__ == '__main__':
         </section>
 
         <!-- Bookmarks -->
-        <section>
+        <section class="bookmark">
             <h2>Bookmarks</h2>
             <ul>
                 <li><a href="https://flask.palletsprojects.com/en/1.1.x/quickstart/#quickstart">Flask Quickstart</a>

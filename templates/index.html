@@ -1,53 +1,95 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caro-zum Portfolio</title>
+    <meta charset="utf-8">
+    <title>@CaroZum</title>
+    <meta name="description" content="A collection of adoptable pets.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="https://kit.fontawesome.com/75bde6854e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 
 <body>
-    <header>
-        <h1>Welcome to Caroline's</h1>
-    </header>
+    <section class="main-header">
 
-    <!-- Who I am -->
-    <section>
-        <h2>I am a data scientist, digital addict, ocean lover and lifelong learner</h2>
+        <a href="">
+            <h1 class="header">
+                <p><i class="fas fa-cubes"></i></p>
+                Caroline Zumbiehl
+            </h1>
+        </a>
+
     </section>
 
-    <!-- Projects and portfolio -->
-    <section>
-        <h2>Projects and portfolio</h2>
-        <div class="card">
-            <h3>Pet app</h3>
-            <p class="date">November 2023</p>
-            <p>Using flask, sqlAlchemy. . </p>
-            <a href="pets.html">Got to the app</a>
-        </div>
-        <div class="card">
-            <h3>Kardashian sisters analysis</h3>
-            <p class="date">November 2023</p>
-            <p>Pandas, Matplotlib using data from google trends.</p>
-            <p class="tags">#<span class="tag">data analysis</span>,
-            <div id="span" class="tag">python</div>
-            </p>
-            <a href="">View the notebook</a>
-        </div>
 
+    <!-- About Me -->
+    <section id="about">
+        <h2>
+            Data analyst - data scientist - python developer
+        </h2>
+        <p>Sujets de prédilection : #ai, #data, #python et #lifelonglearner</p>
+        <p>École des Ponts ParisTech</p>
+        <p>Biarritz, Nouvelle-Aquitaine, France</p>
+    </section>
+
+    <!-- Experience -->
+    <h2>Experience</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste quod veritatis ad odio at facere. Assumenda,
+        obcaecati rerum! Fuga dolorum doloremque quam dicta dolore facere exercitationem eligendi, at explicabo esse.
+    </p>
+    <p>Link to GitHub account</p>
+    <section id="project-cards">
+        <a href="{{url_for('pets')}}">
+            <div class="card">
+                <img src="https://cdn.pixabay.com/photo/2019/08/19/07/45/dog-4415649_960_720.jpg" alt="Dog picture">
+                <h2>Pets </h2>
+                <h3>Nov 2023</h3>
+                <p>Html, css, js, python, flask, sqlAlchemy</p>
+            </div>
+        </a>
+        <a href="#">
+            <div class="card">
+                <img src="/img/k.png" alt="The letter K for Kardashian">
+                <h2>5 Ks</h2>
+                <h3>Nov 2023</h3>
+                <p>Anaconda, jupyter notebook, pandas, numpy, matplotlib</p>
+            </div>
+        </a>
+    </section>
+
+    <!-- blog - Posts -->
+    <section>
+        <h2></i> Blog Posts</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint repudiandae eveniet unde placeat perspiciatis
+            aliquam labore necessitatibus dolorum corrupti nostrum provident impedit quisquam, nobis molestiae officiis.
+            Similique numquam laudantium ullam.</p>
+
+        <a class="blog-btn" href="{{ url_for('blog')}}" alt="Visit the blog page">
+            See more...
+        </a>
+        </p>
     </section>
 
     <!-- Skills and certifications -->
     <section>
-        <h2>Skills and certifications</h2>
+        <h2>Education and certifications</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda facere, temporibus ullam ea veritatis est,
+            repellat necessitatibus dolorum officiis explicabo ut at saepe laborum consequatur accusantium autem. Dicta,
+            incidunt minus.</p>
+
     </section>
 
-    <!-- blog - learning journey -->
+
+    <!-- contact me -->
     <section>
-        <h2>Blog and learning journey</h2>
+        <h2>Get in touch</h2>
+        <p>Form</p>
+        <p>linked in</p>
     </section>
 
+    <script src="/static/js/p1-app.js"></script>
 </body>
 
 </html>

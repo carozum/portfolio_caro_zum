@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Learning Blog</title>
+    <meta name="description" content="my learning journey as a python dev and data specialist.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="https://kit.fontawesome.com/75bde6854e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+    <section class="main-header">
+
+        <a href="{{ url_for('index')}}">
+            <h1 class="header">
+                <p><i class="fas fa-cubes"></i></p>
+                Coding Blog
+            </h1>
+        </a>
+    </section>
+    <section class="posts">
+        <h2>Create an app using flask</h2>
+        <ol>
+            <li><a href="{{url_for('set_environment')}}">Set Your Project Environment</a></li>
+            <li><a href="{{url_for('flask_quickstart')}}">Flask Quickstart</a></li>
+            <li><a href="{{url_for('add_templates')}}">Add templates</a></li>
+            <li><a href="{{url_for('static_files')}}">Add static files</a></li>
+            <li><a href="{{url_for('template_inheritance')}}">Template inheritance</a></li>
+
+
+        </ol>
+    </section>
+    <script src="'/static/js/p1-app.js"></script>
+</body>
+
+</html>

@@ -1,22 +1,57 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 
 
 app = Flask(__name__)
 
 
-@app.route('/')  # request
+@app.route('/')
 def index():
-    return render_template('index.html')  # response
+    return render_template('index.html')
 
 
-@app.route('/pets')  # request
+@app.route('/pets')
 def pets():
-    return render_template('p1-index.html')  # response
+    return render_template('p1-index.html')
+
+
+@app.route('/add-pet')
+def add_pet():
+    return render_template('p1-addpet.html')
+
+
+@app.route('/pet')
+def pet():
+    return render_template('p1-pet.html')
+
+
+@app.route('/blog')
+def blog():
+    return render_template('blog.html')
 
 
 @app.route('/set-environment')
-def environment():
+def set_environment():
     return render_template('b1-set-environment.html')
+
+
+@app.route('/flask-quickstart')
+def flask_quickstart():
+    return render_template('b2-quickstart.html')
+
+
+@app.route('/add-templates')
+def add_templates():
+    return render_template('b3-add-templates.html')
+
+
+@app.route('/static-files')
+def static_files():
+    return render_template('b4-static-files.html')
+
+
+@app.route('/template-inheritance')
+def template_inheritance():
+    return render_template('b5-template-inheritance.html')
 
 
 if __name__ == '__main__':

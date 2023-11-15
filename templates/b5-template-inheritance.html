@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Template inheritance</title>
+</head>
+
+<body>
+    <header>
+        <h1>Step 5 - Template inheritance</h1>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Create connections between the different pages</h2>
+            <ol>
+                <li>In app.py, create the routes for the other pages</li>
+                <li>In app.py, <strong>from flask import url_for</strong>. This will connect our html links to the
+                    routes in order to create links between 2 different pages.</li>
+                <li>Inside html files, links to another page should have the <strong>href ='{{ url_for('add_pet')
+                        }}'</strong>. be careful, it is the NAME OF THE FUNCTION, not the name of the file or of the
+                    route ! </li>
+
+            </ol>
+        </section>
+
+        <section>
+            <h2>DRY up your HTML code</h2>
+            <p>The head section in our html files is repeated in every file. Flask gives us the ability to place these
+                repeated items into their own file and then use them whenever we need to = <strong>template
+                    inheritance.</strong></p>
+            <ol>
+                <li>Create a layout.html file</li>
+                <li></li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Jinja</h2>
+            <p>The double curly braces {.{ }.} let flask know that we want flask to do something. inside of the curly
+                brackets, </p>
+        </section>
+
+        <!-- Bookmarks -->
+        <section class="bookmark">
+            <h2>Bookmarks</h2>
+            <ul>
+                <li><a href="https://jinja.palletsprojects.com/en/2.11.x/templates/#template-inheritance">Jinja Docs
+                        Template inheritance</a></li>
+            </ul>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

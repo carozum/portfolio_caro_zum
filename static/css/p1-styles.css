@@ -1,10 +1,10 @@
 /* Project Styles */
 
 :root {
-    --primary: #272343;
-    --secondary: #BAE8E8;
-    --accent: #FFD803;
-    --background: #FFFFFE;
+    --primary: #132043;
+    --secondary: #1F4172;
+    --accent: #F1B4BB;
+    --background: #FDF0F0;
 }
 
 * {
@@ -80,6 +80,8 @@ a {
     bottom: 2px;
     margin-right: 5px;
 }
+
+
 
 /* Homepage - Card Style */
 

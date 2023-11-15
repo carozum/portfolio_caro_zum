@@ -9,7 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
     <title>Templates</title>
 </head>
 
@@ -22,7 +22,7 @@
 
         <section>
             <h2>Templates</h2>
-            <p>Templates are htmpl files that flask uses to create the structure of our website. </p>
+            <p>Templates are html files that flask uses to create the structure of our website. </p>
             <ol>
                 <li>Add a folder called 'templates' - exact name</li>
                 <li>Inside of this folder, we can create html file for our homepage : index.html.</li>
@@ -34,24 +34,24 @@
         <section>
             <h2>Flask code</h2>
             <pre><code class="python">
-                from flask import Flask, render_template
+    from flask import Flask, render_template
 
-                app = Flask(__name__)
-                
-                @app.route('/')
-                def index():
-                    return render_template('index.html')  
-                
-                @app.route('/pets')  # request
-                def pets():
-                    return render_template('pets.html')
-                
-                @app.route('/set-environment')
-                def environment():
-                    return render_template('set-environment.html')
-                
-                if __name__ == '__main__':
-                    app.run(debug=True, port=8000, host='127.0.0.1')
+    app = Flask(__name__)
+
+    @app.route('/')
+    def index():
+        return render_template('index.html')  
+
+    @app.route('/pets')  # request
+    def pets():
+        return render_template('pets.html')
+
+    @app.route('/set-environment')
+    def environment():
+        return render_template('set-environment.html')
+
+    if __name__ == '__main__':
+        app.run(debug=True, port=8000, host='127.0.0.1')
             </code></pre>
         </section>
 
