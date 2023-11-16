@@ -1,37 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'layout.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block header%}
+Step 2 - Flask quickstart
+{% endblock %}
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <link rel="stylesheet" href="/static/css/styles.css">
-    <title>Flask Quickstart</title>
-</head>
+{% block content%}
+<section>
+    <h2>Request Response Cycle</h2>
+    <p>The request - response cycle is where a user requests information from your site, your site determines
+        how to handle the request and what information to send back, and then a response is sent to the user.
+    </p>
+    <!-- <p><img src="img/request_response.jpg" alt="Request response cycle" width="80%"></p> -->
 
-<body>
-    <header>
-        <h1>Step 2 - Flask quickstart</h1>
-    </header>
+</section>
 
-    <main>
+<section>
+    <h2>Flask Quickstart</h2>
 
-        <section>
-            <h2>Request Response Cycle</h2>
-            <p>The request - response cycle is where a user requests information from your site, your site determines
-                how to handle the request and what information to send back, and then a response is sent to the user.
-            </p>
-            <!-- <p><img src="img/request_response.jpg" alt="Request response cycle" width="80%"></p> -->
-
-        </section>
-
-        <section>
-            <h2>Flask Quickstart</h2>
-
-            <pre><code class="python">
+    <pre><code class="python">
     from flask import Flask
 
     app = Flask(__name__)
@@ -48,34 +34,28 @@
         app.run(debug=True, port=8000, host='127.0.0.1')
 
             </code></pre>
-            <p><strong>Namespaces</strong>__name__ is __main__ or the name of the file ex __app__</p>
-            <p><strong>First request/response, first route</strong>: a route is a command to run a specific function
-                which then returns
-                the response to the user.</p>
-            <p><strong>Decorator</strong> : decorators are function that wrap around other functions and let you do
-                things with
-                them.
-            </p>
-            <p>In the terminal, python3 app.py to run the flask app. </p>
-        </section>
+    <p><strong>Namespaces</strong>__name__ is __main__ or the name of the file ex __app__</p>
+    <p><strong>First request/response, first route</strong>: a route is a command to run a specific function
+        which then returns
+        the response to the user.</p>
+    <p><strong>Decorator</strong> : decorators are function that wrap around other functions and let you do
+        things with
+        them.
+    </p>
+    <p>In the terminal, python3 app.py to run the flask app. </p>
+</section>
 
-        <!-- Bookmarks -->
-        <section class="bookmark">
-            <h2>Bookmarks</h2>
-            <ul>
-                <li><a href="https://flask.palletsprojects.com/en/1.1.x/quickstart/#quickstart">Flask Quickstart</a>
-                </li>
-                <li><a
-                        href="https://levelup.gitconnected.com/demystifying-python-decorators-726f04963a52">Decorators</a>
-                </li>
-                <li><a
-                        href="https://betterprogramming.pub/6-things-to-know-to-demystify-namespaces-and-scopes-in-python-f5353c7ff56f">Namespace
-                        and scope</a></li>
-            </ul>
-        </section>
-
-    </main>
-
-</body>
-
-</html>
+<!-- Bookmarks -->
+<section class="bookmark">
+    <h2>Bookmarks</h2>
+    <ul>
+        <li><a href="https://flask.palletsprojects.com/en/1.1.x/quickstart/#quickstart">Flask Quickstart</a>
+        </li>
+        <li><a href="https://levelup.gitconnected.com/demystifying-python-decorators-726f04963a52">Decorators</a>
+        </li>
+        <li><a
+                href="https://betterprogramming.pub/6-things-to-know-to-demystify-namespaces-and-scopes-in-python-f5353c7ff56f">Namespace
+                and scope</a></li>
+    </ul>
+</section>
+{% endblock %}

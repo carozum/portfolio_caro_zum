@@ -4,6 +4,8 @@ from flask import Flask, render_template, url_for
 app = Flask(__name__)
 
 
+# **************** MAIN PAGE **************
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -14,19 +16,27 @@ def pets():
     return render_template('p1-index.html')
 
 
+@app.route('/blog')
+def blog():
+    return render_template('blog.html')
+
+
+# **************** PROJECT 1 - PET APP ****************
+
+
 @app.route('/add-pet')
 def add_pet():
     return render_template('p1-addpet.html')
 
 
-@app.route('/pet')
-def pet():
-    return render_template('p1-pet.html')
+@app.route('/single-pet')
+def single_pet():
+    return render_template('p1-singlepet.html')
 
 
-@app.route('/blog')
-def blog():
-    return render_template('blog.html')
+# ******************  CODING BLOG ***************
+
+# *************** 1.FLASK *************************
 
 
 @app.route('/set-environment')
@@ -52,6 +62,13 @@ def static_files():
 @app.route('/template-inheritance')
 def template_inheritance():
     return render_template('b5-template-inheritance.html')
+
+
+# *************** 2.PYTHON CLEAN CODE *************************
+
+@app.route('/pep-8')
+def pep_8():
+    return render_template('b-pep8-guidelines.html')
 
 
 if __name__ == '__main__':

@@ -1,61 +1,108 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'layout.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/styles.css">
-    <title>Template inheritance</title>
-</head>
+{% block header%}
+Step 5 - Template inheritance
+{% endblock %}
+{% block content%}
 
-<body>
-    <header>
-        <h1>Step 5 - Template inheritance</h1>
-    </header>
 
-    <main>
+<section>
+    <h2>Create connections between the different pages</h2>
+    <ol>
+        <li>In app.py, create the routes for the other pages</li>
+        <li>In app.py, <strong>from flask import url_for</strong>. This will connect our html links to the
+            routes in order to create links between 2 different pages.</li>
+        <li>Inside html files, links to another page should have the <strong>href ='&#123;{ url_for('add_pet')
+                }}'</strong>. be careful, it is the NAME OF THE FUNCTION, not the name of the file or the
+            route ! </li>
 
-        <section>
-            <h2>Create connections between the different pages</h2>
-            <ol>
-                <li>In app.py, create the routes for the other pages</li>
-                <li>In app.py, <strong>from flask import url_for</strong>. This will connect our html links to the
-                    routes in order to create links between 2 different pages.</li>
-                <li>Inside html files, links to another page should have the <strong>href ='{{ url_for('add_pet')
-                        }}'</strong>. be careful, it is the NAME OF THE FUNCTION, not the name of the file or of the
-                    route ! </li>
+    </ol>
+</section>
 
-            </ol>
-        </section>
+<section>
+    <h2>DRY up your HTML code</h2>
+    <p>The head section in our html files is repeated in every file. Flask gives us the ability to place these
+        repeated items into their own file and then use them whenever we need to = <strong>template
+            inheritance.</strong></p>
+    <ol>
+        <li>Create a layout.html file</li>
+        <li>Layout.html contains all that is the same in each html file. And add block to indicate
+            where the content, the buttons... will be displayed.</li>
+        <ul>
+            <li>&#123;% block button %}&#123;% endblock %}</li>
+            <li>&#123;% block content %}&#123;% endblock %}</li>
+            <li>&#123;% block link %}&#123;% endblock %}</li>
+        </ul>
+        <li>Change your html files with button block, content block...</li>
+        <ul>
+            <li>&#123;% extends 'layout.html' %}</li>
+            <li>&#123;% block button %}&#123;% endblock %}</li>
+            <li>&#123;% block content %}&#123;% endblock %}</li>
+            <li>&#123;% block link %}&#123;% endblock %}</li>
+        </ul>
+    </ol>
+    <p>This creates the structure of our page while also keeping our html DRY. Cool !</p>
+    <p>In layout.html</p>
+    <pre><code class="python">
+                &lt;!DOCTYPE html>
+                &lt;html>
+                &lt;head>...&lt;/head>
+                &lt;body>
+                    &lt;section class="main-header">
+                        &lt;a href="	&#123;{url_for('pets')}}">
+                            &lt;h1 class="header">
+                            &lt;i class="fas fa-paw"></i>Pet Adoption&lt;/h1>
+                        &lt;/a>
 
-        <section>
-            <h2>DRY up your HTML code</h2>
-            <p>The head section in our html files is repeated in every file. Flask gives us the ability to place these
-                repeated items into their own file and then use them whenever we need to = <strong>template
-                    inheritance.</strong></p>
-            <ol>
-                <li>Create a layout.html file</li>
-                <li></li>
-            </ol>
-        </section>
+                        &#123;% block button %}
+                        &#123;% endblock %}
+                    
+                    &lt;/section>
+                    
+                    &#123;% block content %}
+                    &#123;% endblock %}
 
-        <section>
-            <h2>Jinja</h2>
-            <p>The double curly braces {.{ }.} let flask know that we want flask to do something. inside of the curly
-                brackets, </p>
-        </section>
+                &lt;body>
+                ...
+            </code></pre>
+    <p>In index.html</p>
+    <pre><code class="python">
+                &#123;% extends 'layout.html' %}
 
-        <!-- Bookmarks -->
-        <section class="bookmark">
-            <h2>Bookmarks</h2>
-            <ul>
-                <li><a href="https://jinja.palletsprojects.com/en/2.11.x/templates/#template-inheritance">Jinja Docs
-                        Template inheritance</a></li>
-            </ul>
-        </section>
+                &#123;% block button %}
+                    &lt;a class="add-pet-btn" href="{{url_for('add_pet')}}" alt="Add Pet">
+                    &lt;i class="fas fa-plus">&lt;/i>
+                    Pet
+                    &lt;/a>
+                &#123;% endblock %}
 
-    </main>
+                &#123;% block content %}
+                    &lt;section id="pet-cards">
+                    ...
+                    &lt;/section>
+                &#123;% endblock %}     
+            </code></pre>
 
-</body>
+    </code>
 
-</html>
+</section>
+
+
+<section>
+    <h2>Jinja</h2>
+    <p>The double curly braces &#123;{ }} let flask know that we want flask to do something. Inside of the
+        curly,
+        is an expression that will be evaluated.
+        brackets, </p>
+</section>
+
+<!-- Bookmarks -->
+<section class="bookmark">
+    <h2>Bookmarks</h2>
+    <ul>
+        <li><a href="https://jinja.palletsprojects.com/en/2.11.x/templates/#template-inheritance">Jinja Docs
+                Template inheritance</a></li>
+    </ul>
+</section>
+
+{% endblock %}

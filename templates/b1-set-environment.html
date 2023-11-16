@@ -1,75 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'layout.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/styles.css">
-    <title>Set Environment</title>
-</head>
+{% block header%}
+Step 1 - Create the environment of my project
+{% endblock %}
 
-<body>
-    <header>
-        <h1>Step 1 - Create the environment of my project</h1>
-    </header>
 
-    <main>
-        <!-- section 1 installation -->
-        <section>
-            <h2>Installation</h2>
-            <ol>
-                <li>Create a folder for your project</li>
-                <li>Open your folder in your IDE</li>
-                <li>Open the terminal in your IDE</li>
-                <li>Create a virtual environment
-                    <ul>
-                        <li>Mac: python3 -m venv env</li>
-                        <li>Windows: python -m venv env</li>
-                    </ul>
-                </li>
-                <li>Activate your environment
-                    <ul>
-                        <li>Mac: source ./env/bin/activate</li>
-                        <li>Windows: .\env\Scripts\activate</li>
-                    </ul>
-                </li>
-                <li>Install Flask
-                    <ul>
-                        <li>pip install flask</li>
-                    </ul>
-                </li>
-                <li>Create requirements file
-                    <ul>
-                        <li>pip freeze > requirements.txt</li>
-                    </ul>
-                </li>
-                <li>Post it on GitHub
-                    <ul>
-                        <li>Create a .gitignore file</li>
-                        <li>Add inside: env, .vscode, /__pycache__, .DS_Store</li>
-                        <li>git init</li>
-                        <li>git add .</li>
-                        <li>git commit -m "comment"</li>
-                        <li>Create repo on git Hub</li>
-                        <li>git remote add ...</li>
-                        <li>git push origin main</li>
-                    </ul>
-                </li>
-            </ol>
-        </section>
+{% block content%}
 
-        <!-- Bookmarks -->
-        <section class="bookmark">
-            <h2>Bookmarks</h2>
+<!-- section 1 installation -->
+<section>
+    <h2>Installation</h2>
+    <ol>
+        <li>Create a folder for your project</li>
+        <li>Open your folder in your IDE</li>
+        <li>Open the terminal in your IDE</li>
+        <li>Create a virtual environment
             <ul>
-                <li><a href="https://flask.palletsprojects.com/en/1.1.x/">Flask Docs</a></li>
-                <li><a href="https://jinja.palletsprojects.com/en/2.11.x/">Jinja Docs</a></li>
-                <li><a href="https://flask-sqlalchemy.palletsprojects.com/en/2.x/">Flask - SQLAlchemy</a></li>
+                <li>Mac: python3 -m venv env</li>
+                <li>Windows: python -m venv env</li>
             </ul>
-        </section>
+        </li>
+        <li>Activate your environment
+            <ul>
+                <li>Mac: source ./env/bin/activate</li>
+                <li>Windows: .\env\Scripts\activate</li>
+            </ul>
+        </li>
+        <li>Install Flask
+            <ul>
+                <li>pip install flask</li>
+            </ul>
+        </li>
+        <li>Create requirements file
+            <ul>
+                <li>pip freeze > requirements.txt</li>
+            </ul>
+        </li>
+        <li>Post it on GitHub
+            <ul>
+                <li>Create a .gitignore file</li>
+                <li>Add inside: env, .vscode, /__pycache__, .DS_Store</li>
+                <li>git init</li>
+                <li>git add .</li>
+                <li>git commit -m "comment"</li>
+                <li>Create repo on git Hub</li>
+                <li>git remote add ...</li>
+                <li>git push origin main</li>
+            </ul>
+        </li>
+    </ol>
+</section>
 
-    </main>
-
-</body>
-
-</html>
+<!-- Bookmarks -->
+<section class="bookmark">
+    <h2>Bookmarks</h2>
+    <ul>
+        <li><a href="https://flask.palletsprojects.com/en/1.1.x/">Flask Docs</a></li>
+        <li><a href="https://jinja.palletsprojects.com/en/2.11.x/">Jinja Docs</a></li>
+        <li><a href="https://flask-sqlalchemy.palletsprojects.com/en/2.x/">Flask - SQLAlchemy</a></li>
+    </ul>
+</section>
+{% endblock %}

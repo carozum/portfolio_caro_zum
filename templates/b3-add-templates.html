@@ -1,39 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'layout.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block header%}
+Step 3 - Add templates
+{% endblock %}
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+{% block content%}
 
-    <link rel="stylesheet" href="/static/css/styles.css">
-    <title>Templates</title>
-</head>
+<section>
+    <h2>Templates</h2>
+    <p>Templates are html files that flask uses to create the structure of our website. </p>
+    <ol>
+        <li>Add a folder called 'templates' - exact name</li>
+        <li>Inside of this folder, we can create html file for our homepage : index.html.</li>
+        <li>Add content to html file</li>
+        <li>in app.py, import the render_template method and return render_template('index.html')</li>
+    </ol>
+</section>
 
-<body>
-    <header>
-        <h1>Step 3 - Add templates</h1>
-    </header>
-
-    <main>
-
-        <section>
-            <h2>Templates</h2>
-            <p>Templates are html files that flask uses to create the structure of our website. </p>
-            <ol>
-                <li>Add a folder called 'templates' - exact name</li>
-                <li>Inside of this folder, we can create html file for our homepage : index.html.</li>
-                <li>Add content to html file</li>
-                <li>in app.py, import the render_template method and return render_template('index.html')</li>
-            </ol>
-        </section>
-
-        <section>
-            <h2>Flask code</h2>
-            <pre><code class="python">
+<section>
+    <h2>Flask code</h2>
+    <pre><code class="python">
     from flask import Flask, render_template
 
     app = Flask(__name__)
@@ -53,11 +39,6 @@
     if __name__ == '__main__':
         app.run(debug=True, port=8000, host='127.0.0.1')
             </code></pre>
-        </section>
+</section>
 
-
-    </main>
-
-</body>
-
-</html>
+{% endblock %}

@@ -1,19 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'layout.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pep8</title>
-</head>
+{% block header %}
+Pep8 Guidelines
+{% endblock %}
 
-<body>
-    <ul>
-        <li>2 blank lines after imports</li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-</body>
+{% block content%}
+<ul>
+    <li>2 blank lines after imports</li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
 
-</html>
+{% endblock %}

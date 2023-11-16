@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fontawsome -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="https://kit.fontawesome.com/75bde6854e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- code highlighter -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Flask Quickstart</title>
+</head>
+
+<body>
+    <section class="main-header">
+
+        <a href="{{ url_for('index')}}">
+            <h1 class="header">
+                <p><i class="fas fa-cubes"></i></p>
+                {% block header%}
+                {% endblock %}
+            </h1>
+        </a>
+    </section>
+
+    <main>
+        {% block content%}
+        {% endblock %}
+    </main>
+
+
+</body>
+
+</html>
