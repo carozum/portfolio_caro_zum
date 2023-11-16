@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block header %}
+Connect HTML forms to my Python backend using Flask
+{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Connecting html form to the back end</h2>
+    <p>I create an html form. I can fill it and when I push enter or submit, I can see my choices indicated in the URL.
+        So I can work with the data. </p>
+    <ul>
+        <li>We need to set the action attribute. This will be the URL we want the form to submit to.</li>
+        <li><strong>
+                &lt;form
+                action="&#123;{ url_for('add_pet') }}" method="POST" ></strong></li>
+        <li>The POST attribute will send our form data to our add_pet route. Then we can play with the data. But first,
+            we need to make sure our route knows it is going to be receiving some data. </li>
+        <li>In app.py, add_pet route, change the decorator to <strong>@app.route('/add-pet', methods=['GET',
+                'POST'])</strong></li>
+        <li>We need both because this route is used to get our addpet page and show it to the user and now will be also
+            receiving our form data via a post.</li>
+        <li>to make sure we can see our data, import request: <strong>from flask import (Flask, render_template,
+                url_for,
+                request)</strong></li>
+    </ul>
+</section>
+<section>
+    <h2>Code for that</h2>
+
+    <pre><code>
+    @app.route('/add-pet', methods=['GET', 'POST'])
+    def add_pet():
+        print(request.form)
+        print(request.form['age'])
+        return render_template('addpet.html')
+    </code></pre>
+    <p>request.form return an immutable multi dictionary, when I fill the form (no longer passed via the URL). The keys
+        come from the name attribute on the form inputs. </p>
+    <pre>
+        ImmutableMultiDict([
+        ('name', 'Médor'), ('age', '1 year'), 
+        ('breed', 'Corgy'), ('url', ''), 
+        ('color', 'Marroon'), ('size', 'small'), 
+        ('weight', '5 kg'), ('alt', ''), 
+        ('pet', 'Dog'), ('gender', 'Male'), 
+        ('spay', 'Unknown'), ('housetrained', 'Yes'),
+        ('description', "Queen's dog")])
+    </pre>
+</section>
+<section>
+    <h2>Quick review : </h2>
+    <ul>
+        <li>When a form is submitted, the browser looks at the action and method attributes on the form to see what it
+            should do with the information. Here, we are telling flask to insert the route for the add_pet function. The
+            browser says OK, I need to send this information from this form as a POST to this route.</li>
+        <li>The application then receives this information and now has access to the data submitted by the form because
+            the route now accepts information or POST requests.</li>
+        <li>Now that we have our form submitting we can work on saving the data in a database and displaying on the
+            homepage.</li>
+    </ul>
+
+</section>
+
+{% endblock %}

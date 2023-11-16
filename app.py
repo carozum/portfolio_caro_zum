@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import (Flask, render_template, url_for, request)
 
 
 app = Flask(__name__)
@@ -24,8 +24,10 @@ def blog():
 # **************** PROJECT 1 - PET APP ****************
 
 
-@app.route('/add-pet')
+@app.route('/add-pet', methods=['GET', 'POST'])
 def add_pet():
+    print(request.form)
+    print(request.form['name'])
     return render_template('p1-addpet.html')
 
 
@@ -64,7 +66,12 @@ def template_inheritance():
     return render_template('b5-template-inheritance.html')
 
 
+@app.route('/form')
+def form():
+    return render_template('b6-form.html')
+
 # *************** 2.PYTHON CLEAN CODE *************************
+
 
 @app.route('/pep-8')
 def pep_8():
@@ -72,4 +79,6 @@ def pep_8():
 
 
 if __name__ == '__main__':
+    # with app.app_context():
+    #    db.create_all()
     app.run(debug=True, port=8000, host='127.0.0.1')
