@@ -1,0 +1,125 @@
+{% extends 'layout.html' %}
+{% block header %}
+Markdown cheat sheet
+{% endblock %}
+{% block content %}
+
+<h1>Markdown Cheat sheet</h1>
+<p>Markdown is a short-hand syntax for easily converting text to HTML. Below are some popular examples of Markdown
+    formatting. For further documentation and more examples, reference this external resource.</p>
+
+
+
+<h2>Headlines</h2>
+<p>
+<pre>
+    # h1
+    ## h2
+    ### h3
+    #### h4 ...
+</pre>
+</p>
+
+
+<h2>Links</h2>
+<p>This is an [example link](http://example.com/). Renders as:</p>
+
+<pre style="background-color:rgb(115, 168, 168); padding: 5px 0 5px 20px;">
+This is an <span style="color: blue; text-decoration: underline;">example link</span></pre>
+
+<h2>Code Block</h2>
+<p>Wrap your code with 3 backticks (```) on the line before and after. If you specify the language after the first set
+    of backticks, that'll help us with syntax highlighting.
+
+<pre>
+    ```css
+    .fun {
+    background-color: yellow;
+    color: pink;
+    font-size: 5000px;
+    }
+    ```</pre>
+Renders as:</p>
+<pre style="background-color:rgb(115, 168, 168); padding: 5px 0 5px 20px;">
+.fun {
+    background-color: yellow;
+    color: pink;
+    font-size: 5000px;
+}
+</pre>
+
+<h2>Inline Code</h2>
+<p>Code can also appear inline. Put a backtick (`) before and after the code. This line has inline code `.fun`. Renders
+    as:</p>
+
+<pre style="background-color:rgb(115, 168, 168); padding: 5px 0 5px 20px;">
+This line has inline code .fun</pre>
+
+<h2>Quoting</h2>
+<p>If you're replying to someone, you can copy portions of their text into your reply, and mark them as quotations by
+    putting > at the start of each line.
+
+    > This line is quoted. Renders as:</p>
+
+<blockquote style="background-color:rgb(115, 168, 168); padding: 5px 0 5px 20px;">
+    This line is quoted.</blockquote>
+
+<h2>Italic</h2>
+<p>Here's a word that is *emphasized*
+
+    Renders as:</p>
+<pre style="background-color:rgb(115, 168, 168); padding: 5px 0 5px 20px;">
+Here's a word that is <i>emphasized</i>
+</pre>
+
+<h2>Bold</h2>
+<p>Here's a word that is **bold**
+
+    Renders as:</p>
+<pre style="background-color:rgb(115, 168, 168); padding: 5px 0 5px 20px;">
+Here's a word that is <b>bold</b></pre>
+
+<h2>Images</h2>
+<p>Format:
+
+<pre>![alt text](/path/to/img.jpg "Title")</pre>
+
+Example:
+
+<pre>
+![The `result` Variable
+Type](https://treehouse-code-samples.s3.amazonaws.com/csharp/img/user-auth-with-aspnet-identity/s2t6-result-var-type.png)</pre>
+
+Renders as:</p>
+<pre style="background-color:rgb(115, 168, 168); padding: 5px 0 5px 20px;">
+The image !!</pre>
+
+
+<h2>Unordered List</h2>
+<p>
+<pre>
++ Candy
++ Gum
++ Peanuts</pre>
+
+Renders as:</p>
+<pre style="background-color:rgb(115, 168, 168); padding: 5px 0 5px 20px;">
+. Candy
+. Gum
+. Peanuts
+</pre>
+
+<h2>Ordered List</h2>
+<p>
+<pre>
+1. Red
+2. Green
+3. Blue
+</pre>
+Renders as:</p>
+<pre style="background-color:rgb(115, 168, 168); padding: 5px 0 5px 20px;">
+1. Red
+2. Green
+3. Blue</pre>
+
+{% endblock %}

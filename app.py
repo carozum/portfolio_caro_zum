@@ -1,7 +1,5 @@
-from flask import (Flask, render_template, url_for, request)
-
-
-app = Flask(__name__)
+from flask import (render_template, url_for, request)
+from models import db, Pet, app
 
 
 # **************** MAIN PAGE **************
@@ -38,7 +36,7 @@ def single_pet():
 
 # ******************  CODING BLOG ***************
 
-# *************** 1.FLASK *************************
+# *************** B0.FLASK  **********************
 
 
 @app.route('/set-environment')
@@ -70,15 +68,35 @@ def template_inheritance():
 def form():
     return render_template('b6-form.html')
 
-# *************** 2.PYTHON CLEAN CODE *************************
+
+# *************** b10. DATABASE SQLAlchemy *************************
+@app.route('/flask-sqlalchemy')
+def flask_sqlalchemy():
+    return render_template('b10-flask-sqlalchemy.html')
+
+# ****************b20. SQL ********************
+
+
+@app.route('/basic-sql')
+def basic_sql():
+    return render_template('b20-basic-sql.html')
+
+# *************** b30.PYTHON *************************
 
 
 @app.route('/pep-8')
 def pep_8():
-    return render_template('b-pep8-guidelines.html')
+    return render_template('b20-pep8-guidelines.html')
+
+
+# ****************** b90. Other subjects
+
+@app.route('/markdown')
+def markdown():
+    return render_template('b90-markdown.html')
 
 
 if __name__ == '__main__':
-    # with app.app_context():
-    #    db.create_all()
+    with app.app_context():
+        db.create_all()
     app.run(debug=True, port=8000, host='127.0.0.1')

@@ -7,7 +7,8 @@ Coding Blog
 {% block content%}
 <section class="posts">
     <section class="flask">
-        <h2>Create an app using flask</h2>
+        <h2>Creating a Basic Website with flask </h2>
+        <p>Following course of Megan Amendola (Treehouse)</p>
         <ol>
             <li><a href="{{url_for('set_environment')}}">Set Your Project Environment</a></li>
             <li><a href="{{url_for('flask_quickstart')}}">Flask Quickstart</a></li>
@@ -17,10 +18,30 @@ Coding Blog
             <li><a href="{{url_for('form')}}">Adding a form</a></li>
         </ol>
     </section>
-    <section class="clean-python">
-        <h2>Write clean Python code</h2>
+
+    <section class="database">
+        <h2>Connecting to a database with SQLAlchemy</h2>
+        <li><a href="{{url_for('flask_sqlalchemy')}}">SQLAlchemy and Flask</a></li>
+
+    </section>
+    <section class="sql">
+        <h2>Basic SQL</h2>
+        <ol>
+            <li><a href="{{ url_for('basic_sql')}}">basic SQL</a></li>
+        </ol>
+    </section>
+
+    <section class="python-code">
+        <h2>Python code</h2>
         <ol>
             <li><a href="{{ url_for('pep_8')}}">pep8 Guidelines</a></li>
+        </ol>
+    </section>
+
+    <section class="other">
+        <h2>Other subjects</h2>
+        <ol>
+            <li><a href="{{ url_for('markdown')}}">Markdown principles</a></li>
         </ol>
     </section>
 </section>

@@ -1,0 +1,128 @@
+{% extends 'layout.html' %}
+{% block header %}
+Flask and SQLAlchemy
+{% endblock %}
+{% block content %}
+
+<section>
+    <h2>Connection to the database</h2>
+    <p>Flask as a special SQLalchemy connection called Flask-SQLAlchemy: <code>pip install flask-sqlalchemy</code></p>
+    <ul>
+        <li><code>pip install flask-sqlalchemy</code></li>
+        <li><code>pip freeze > requirements.txt</code></li>
+        <li>Create a nex file : models.py</li>
+        <li>Add the imports (Flask, SQLAlchemy and datetime</li>
+        <li>Move your app variable over to this file (from app.py to models.py)</li>
+        <li>Set the database filename and location (see documentation quickstart for flask-sqlalchemy)</li>
+        <li>add our db variable equals to SQLAlchemy(app)</li>
+        <li>Now we can create a model for the database : the model creates the layout for the table by stating what the
+            column names are and the type of content inside each columns.</li>
+        <li>We also create a __repr__ method so that our pets are nicely organized when they are printed to the console.
+        </li>
+        <li>Inside app.py change the import (no longer needed to import Flask in app.py as it is done in models.py)</li>
+        <li>and delete : app = Flask(__name__) as the app is already created in models.py</li>
+        <li></li>
+
+    </ul>
+    <h2>In models.py</h2>
+    <pre>
+        <code>
+            from flask import Flask
+            from flask_sqlalchemy import SQLAlchemy
+            import datetime
+            
+            app = Flask(__name__)
+            app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///pets.db'
+            db = SQLAlchemy(app)
+            
+            
+            class Pet(db.Model):
+                id = db.Column(db.Integer, primary_key=True)
+                created = db.Column('Created', db.DateTime, 
+                                default=datetime.datetime.now)
+                name = db.Column('Name', db.String())
+                age = db.Column('Age', db.String())
+                breed = db.Column('Breed', db.String())
+                color = db.Column('Color', db.String())
+                size = db.Column('Size', db.String())
+                weight = db.Column('Weight', db.String())
+                url = db.Column('URL', db.String())
+                url_tag = db.Column('Alt tag', db.String())
+                pet_type = db.Column('Pet Type', db.String())
+                gender = db.Column('Gender', db.String())
+                spay = db.Column('Spay', db.String())
+                house_trained = db.Column('House Trained', db.String())
+                description = db.Column('Description', db.Text)
+            
+                # __repr__ so that our pets are nicely organized when they are printed to the console.
+                def __repr__(self):
+                    return f"""&lt;Pet (Name: {self.name}
+                                    Age: {self.age}
+                                    Breed: {self.breed}
+                                    Color: {self.color}
+                                    Size: {self.size}
+                                    Weight: {self.weight}
+                                    URL: {self.url}
+                                    Tag : {self.url_tag}
+                                    Pet Type: {self.pet_type}
+                                    Gender: {self.gender}
+                                    Spay: {self.spay}
+                                    House Trained: {self.house_trained}
+                                    Description: {self.description}
+                            )"""
+                        </code>
+    </pre>
+
+    <h2>in app.py</h2>
+    <pre><code>
+    from flask import (render_template, url_for, request)
+    from models import db, Pet, app
+
+
+    @app.route('/')
+    def index():
+        return render_template('index.html')
+
+    
+    if __name__ == '__main__':
+        with app.app_context():
+            db.create_all()
+        app.run(debug=True, port=8000, host='127.0.0.1')
+    </code></pre>
+</section>
+<section>
+    <h2>Very common error about datetime.datetime.now</h2>
+    <p>
+        In Python, functions are first class objects. That is, they can be treated like a ordinary object and be
+        assigned to a variable. </p>
+    <p>datetime.now refers to the function as an object and datetime.now() executes the function and returns the current
+        time.</p>
+
+    <p>A common scenario is using the current date and time. It allows you to specify a
+        function in these cases, whose return value will be used when the object is created. Note we only provide the
+        function, we do not actually call it:</p>
+
+    <pre><code>
+    class Pet(db.Model):
+        id = db.Column(db.Integer, primary_key=True)
+        created = db.Column('Created', db.DateTime, 
+                                default=datetime.datetime.now)
+    </code></pre>
+    <p>With the parens it will execute at compile time so every instance would have the same value. That is to say, when
+        the model.py file is run and then it would never call it again, which is not what we want. </p>
+    <p>We want the date to work every single time we create a new entry. Without the parens,it will execute at
+        instantiation time and each instance would get the time when the new instance is created.</p>
+</section>
+
+<section class="bookmark">
+    <ul>
+        <li><a href="https://flask-sqlalchemy.palletsprojects.com/en/2.x/quickstart/#a-minimal-application">flask-sqlalchemy
+                quickstart</a></li>
+        <li><a href="https://docs.peewee-orm.com/en/latest/index.html">Peewee ORM</a> Peewee is a simple and small ORM.
+            It has few (but expressive) concepts, making it easy to learn and intuitive to use.</li>
+    </ul>
+
+</section>
+
+
+{% endblock %}
